@@ -10,8 +10,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class ButtonPanel extends JPanel implements MouseListener{
+	private static final long serialVersionUID = 1L;
 	
-    private Image NewGame;
+	private Image NewGame;
     private Rectangle newGameBounds; // For click detection
 
 	public ButtonPanel() {

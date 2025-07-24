@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.ImageIcon;
 import java.awt.*;
 
-public class BackgroundPanel extends JPanel {
+public class BackgroundPanel extends JPanel implements BgMenu {
     private static final long serialVersionUID = 1L;
 
     // Variables
@@ -13,18 +13,38 @@ public class BackgroundPanel extends JPanel {
     private Image foreground;
 
     private Image Room207;
-
+    
     public BackgroundPanel() {
-        // Load images from the correct path
-        background = new ImageIcon(getClass().getResource("/assets/MainMenu/o-1.png")).getImage();
-        middleground = new ImageIcon(getClass().getResource("/assets/MainMenu/o-2.png")).getImage();
-        foreground = new ImageIcon(getClass().getResource("/assets/MainMenu/o-3.png")).getImage();
-        Room207 = new ImageIcon(getClass().getResource("/assets/MainMenu/o-4.png")).getImage();
+    	scene1();
     }
 
-    // This must be called in the constructor
+	public void background() {
+		background = new ImageIcon(getClass().getResource("/assets/MainMenu/o-1.png")).getImage();
+		
+	}
 
+	
+	public void midBackground() {
+		middleground = new ImageIcon(getClass().getResource("/assets/MainMenu/o-2.png")).getImage();
+		
+	}
 
+	
+	public void forGround() {
+		foreground = new ImageIcon(getClass().getResource("/assets/MainMenu/o-3.png")).getImage();
+	}
+
+	
+	public void titleText() {
+		Room207 = new ImageIcon(getClass().getResource("/assets/MainMenu/o-4.png")).getImage();
+	}
+	
+	public void scene1() {
+		background();
+    	midBackground();
+    	forGround();
+    	titleText();
+	}
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -33,6 +53,10 @@ public class BackgroundPanel extends JPanel {
         g.drawImage(foreground, 0, 0, getWidth(), getHeight(), this);
         g.drawImage(Room207, 380, 40, 582, 136, this);
     }
+
+
+
+
 
 
 }

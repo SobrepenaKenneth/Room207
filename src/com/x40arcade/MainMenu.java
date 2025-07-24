@@ -12,7 +12,7 @@ public class MainMenu extends JPanel{
 	public MainMenu() {
 		JFrame frame = new JFrame("Room 207 - Game Screen");
 		
-		frame.setSize(1280, 720); //set nung size
+		frame.setSize(1980, 1280); //set nung size
 		frame.setBackground(Color.BLACK);
 		frame.setUndecorated(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Close the app
@@ -24,22 +24,24 @@ public class MainMenu extends JPanel{
 	    JLayeredPane layeredPane = new JLayeredPane();
 	    layeredPane.setPreferredSize(new Dimension(1280, 720));
 	    
-	    BackgroundPanel background = new BackgroundPanel();
-	    background.setBounds(0, 0, 1280,720);
-
+	    BackgroundPanel backgroundImage = new BackgroundPanel();
+	    backgroundImage.setOpaque(false);
+	    backgroundImage.setBounds(0, 0, 1280, 720);
+	    backgroundImage.scene1();
+	    
 		ButtonPanel newGameBtn = new ButtonPanel();
 		newGameBtn.setOpaque(false);
 		newGameBtn.setBounds(0, 0, 1280, 720);
 		
-		layeredPane.add(background, Integer.valueOf(0));
+		layeredPane.add(backgroundImage, Integer.valueOf(0));
 		layeredPane.add(newGameBtn, Integer.valueOf(1));
 		
         frame.setContentPane(layeredPane);
         frame.pack();
         frame.setVisible(true);
-
+        
 	}
-	
+
 	// think of this one that runs everything
 	public static void main(String[] args) {
 		new MainMenu();
